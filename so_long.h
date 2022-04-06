@@ -6,12 +6,14 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/05 16:16:15 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/06 17:20:16 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "mlx/mlx.h"
+# include "libft/libft.h"
 
 #endif
