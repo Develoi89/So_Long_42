@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/07 17:59:57 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:20:14 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,11 @@ typedef struct s_sizes
 	void	*wndw;
 	char	**map;
 }	t_sizes;
+
+typedef struct s_index
+{
+	int		x;
+	int		y;
+}	t_index;
 
 #endif
