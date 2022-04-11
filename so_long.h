@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/07 18:20:14 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:40:47 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,29 @@
 #  define BUFFER_SIZE 4096
 # endif
 
-char	**reading_map(char *map);
+# ifndef IMG_SIZE
+#  define IMG_SIZE 32
+# endif
 
 typedef struct s_sizes
 {
 	void	*mlx_ptr;
 	void	*wndw;
+	void	**spr;
 	char	**map;
+
 }	t_sizes;
 
 typedef struct s_index
 {
 	int		x;
 	int		y;
+	int		h;
+	int		w;
 }	t_index;
+
+char	**reading_map(char *map);
+int		countst(char **res);
+void	*showing(t_sizes *s, char *image);
 
 #endif

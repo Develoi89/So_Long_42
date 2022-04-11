@@ -2,6 +2,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRCS = so_long.c \
 		src/map.c \
+		src/so_long_utils.c \
 
 OBJS 	= ${SRCS:.c=.o}
 
