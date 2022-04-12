@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:50:57 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/11 15:53:39 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/12 15:47:04 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ char	**reading_map(char *map)
 	buff = malloc(sizeof(char) * BUFFER_SIZE);
 	read(fd, buff, BUFFER_SIZE);
 	res = ft_split(buff, '\n');
+	free (buff);
 	close(fd);
 	return (res);
+}
+
+int	readlen(char *map)
+{
+	int		fd;
+	char	*buff;
+	int		len;
+
+	fd = open(map, O_RDONLY, 0);
+	buff = malloc(sizeof(char) * BUFFER_SIZE);
+	len = read(fd, buff, BUFFER_SIZE);
+	free(buff);
+	close(fd);
+	return (len);
 }

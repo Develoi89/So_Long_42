@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/11 18:14:15 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:56:58 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 void	*put_sprite(t_sizes *s, int x, int y)
 {
 	if (s->map[x][y] == '1')
-		return (showing(s, "./img/rock.xpm"));
-	if (s->map[x][y] == '0')
-		return (showing(s, "./img/floor.xpm"));
-	if (s->map[x][y] == 'C')
-		return (showing(s, "./img/collectable.xpm"));
-	if (s->map[x][y] == 'E')
-		return (showing(s, "./img/out.xpm"));
-	if (s->map[x][y] == 'P')
-		return (showing(s, "./img/hero.xpm"));
-	return (0);
+		return (showing(s, "img/rock.xpm"));
+	else if (s->map[x][y] == '0')
+		return (showing(s, "img/floor.xpm"));
+	else if (s->map[x][y] == 'C')
+		return (showing(s, "img/collectable.xpm"));
+	else if (s->map[x][y] == 'E')
+		return (showing(s, "img/out.xpm"));
+	else if (s->map[x][y] == 'P')
+		return (showing(s, "img/hero.xpm"));
+	else
+		return (0);
 }
 
 void	mapping(t_sizes	*s)
@@ -35,11 +36,11 @@ void	mapping(t_sizes	*s)
 	num = 0;
 	i.x = 0;
 	i.h = 0;
-	while (s->map[i.x] != 0)
+	while (s->map[i.x])
 	{
 		i.y = 0;
 		i.w = 0;
-		while (s->map[i.x][i.y] != '\n' && s->map[i.x][i.y] != '\0')
+		while (s->map[i.x][i.y] != '\n' && s->map[i.x][i.y])
 		{
 			s->spr[num] = put_sprite(s, i.x, i.y);
 			if (s->spr[num] == NULL)
@@ -63,8 +64,11 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	sizes.map = reading_map(argv[1]);
+	sizes.spr = calloc(sizeof(void *), (readlen(argv[1]) + 1));
+	if (!sizes.spr)
+		return (0);
 	height = countst(sizes.map) * IMG_SIZE;
-	width = ft_strlen(sizes.map[0] - 1) * IMG_SIZE;
+	width = ft_strlen(sizes.map[0]) * IMG_SIZE;
 	sizes.mlx_ptr = mlx_init();
 	sizes.wndw = mlx_new_window(sizes.mlx_ptr, (width), (height), "so_long");
 	mapping(&sizes);
