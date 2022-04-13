@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/12 17:56:58 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:29:39 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	main(int argc, char **argv)
 	sizes.mlx_ptr = mlx_init();
 	sizes.wndw = mlx_new_window(sizes.mlx_ptr, (width), (height), "so_long");
 	mapping(&sizes);
+	mlx_hook(sizes.wndw, 2, 0, move_it, &sizes);
+	mlx_hook(sizes.wndw, 17, 0, close_it, &sizes);
 	mlx_loop(sizes.mlx_ptr);
 	return (0);
 }

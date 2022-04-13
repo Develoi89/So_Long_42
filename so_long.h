@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/12 16:30:53 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:47:56 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ char	**reading_map(char *map);
 int		countst(char **res);
 void	*showing(t_sizes *s, char *image);
 int		readlen(char *map);
+int		close_it(void);
+int		move_it(int keycap);
 
 #endif
