@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/13 17:47:56 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:40:18 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_sizes
 	void	*wndw;
 	void	**spr;
 	char	**map;
-
+	int		hx;
+	int		hy;
 }	t_sizes;
 
 typedef struct s_index
@@ -45,6 +46,10 @@ int		countst(char **res);
 void	*showing(t_sizes *s, char *image);
 int		readlen(char *map);
 int		close_it(void);
-int		move_it(int keycap);
+int		move_it(int keycap, t_sizes *sizes);
+int		lets_move(int keycap, t_sizes *sizes);
+void	mapping(t_sizes	*s);
+void	*put_sprite(t_sizes *s, int x, int y);
+void	remove_sprites(t_sizes *sizes);
 
 #endif

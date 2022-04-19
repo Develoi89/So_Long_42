@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:45:10 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/12 16:03:36 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:40:32 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,16 @@ void	*showing(t_sizes *s, char *image)
 	img = mlx_xpm_file_to_image(s->mlx_ptr, image,
 			&img_size, &img_size);
 	return (img);
+}
+
+void	remove_sprites(t_sizes *sizes)
+{
+	int	i;
+
+	i = 0;
+	while (sizes->spr[i])
+	{
+		mlx_destroy_image(sizes->mlx_ptr, sizes->spr[i]);
+		i++;
+	}
 }
