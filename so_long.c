@@ -6,11 +6,22 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 16:40:29 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/19 19:03:44 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	window(t_sizes *sizes)
+{
+	int		width;
+	int		height;
+
+	height = countst(sizes->map) * IMG_SIZE;
+	width = ft_strlen(sizes->map[0]) * IMG_SIZE;
+	sizes->mlx_ptr = mlx_init();
+	sizes->wndw = mlx_new_window(sizes->mlx_ptr, (width), (height), "so_long");
+}
 
 void	*put_sprite(t_sizes *s, int x, int y)
 {
@@ -58,8 +69,6 @@ void	mapping(t_sizes	*s)
 int	main(int argc, char **argv)
 {
 	t_sizes	sizes;
-	int		width;
-	int		height;
 
 	if (argc != 2)
 		return (0);
@@ -67,12 +76,9 @@ int	main(int argc, char **argv)
 	sizes.spr = calloc(sizeof(void *), (readlen(argv[1]) + 1));
 	if (!sizes.spr)
 		return (0);
-	height = countst(sizes.map) * IMG_SIZE;
-	width = ft_strlen(sizes.map[0]) * IMG_SIZE;
-	sizes.mlx_ptr = mlx_init();
-	sizes.wndw = mlx_new_window(sizes.mlx_ptr, (width), (height), "so_long");
+	window(&sizes);
 	mapping(&sizes);
-	mlx_hook(sizes.wndw, 2, 0, move_it, &sizes);
+	mlx_key_hook(sizes.wndw, move_it, &sizes);
 	mlx_hook(sizes.wndw, 17, 0, close_it, &sizes);
 	mlx_loop(sizes.mlx_ptr);
 	return (0);

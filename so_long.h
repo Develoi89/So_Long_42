@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 16:40:18 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/19 18:55:29 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int		lets_move(int keycap, t_sizes *sizes);
 void	mapping(t_sizes	*s);
 void	*put_sprite(t_sizes *s, int x, int y);
 void	remove_sprites(t_sizes *sizes);
+void	window(t_sizes *sizes);
 
 #endif

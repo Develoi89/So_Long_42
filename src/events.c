@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:09:09 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 16:40:38 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/19 19:05:23 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,31 @@
 void	*lets_swap(int x, int y, t_sizes *sizes)
 {
 	remove_sprites(sizes);
-	mlx_clear_window(sizes->mlx_ptr, sizes->wndw);
+	mlx_destroy_window(sizes->mlx_ptr, sizes->wndw);
 	sizes->map[sizes->hx + x][sizes->hy + y] = 'P';
 	sizes->map[sizes->hx][sizes->hy] = '0';
+	window(sizes);
 	mapping(sizes);
 	return (0);
 }
 
-void	*found_the_hero(t_sizes *sizes)
+void	found_the_hero(t_sizes *sizes)
 {
-	int	x;
-	int	y;
+	unsigned int	x;
+	unsigned int	y;
 
 	x = 0;
 	y = 0;
-	while (sizes->map[x][y] != 'P')
+	while (sizes->map[x][y] != 'P' && sizes->map[x][y] != 0)
 	{
+		y = 0;
+		while (sizes->map[x][y] != 'P' && sizes->map[x][y] != '\0')
+			y++;
 		x++;
-		y++;
 	}
+	// close_it();
 	sizes->hx = x;
 	sizes->hy = y;
-	return (0);
 }
 
 int	lets_move(int keycap, t_sizes *sizes)
@@ -50,10 +53,10 @@ int	lets_move(int keycap, t_sizes *sizes)
 		lets_swap(-1, 0, sizes);
 	if ((keycap == 2 || keycap == 124)
 		&& sizes->map[sizes->hx][sizes->hy + 1] != '1')
-		lets_swap(0, -1, sizes);
+		lets_swap(0, +1, sizes);
 	if ((keycap == 1 || keycap == 125)
 		&& sizes->map[sizes->hx + 1][sizes->hy] != '1')
-		lets_swap(0, -1, sizes);
+		lets_swap(+1, 0, sizes);
 	else
 		return (0);
 	return (0);
