@@ -6,11 +6,19 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 19:03:44 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/20 16:54:34 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	**save_spr(t_sizes *sizes)
+{
+	sizes->spr = calloc(sizeof(void *), (sizes->len));
+	if (!sizes->spr)
+		return (0);
+	return (sizes->spr);
+}
 
 void	window(t_sizes *sizes)
 {
@@ -70,15 +78,16 @@ int	main(int argc, char **argv)
 {
 	t_sizes	sizes;
 
+	sizes.len = readlen(argv[1]) + 1;
 	if (argc != 2)
 		return (0);
 	sizes.map = reading_map(argv[1]);
-	sizes.spr = calloc(sizeof(void *), (readlen(argv[1]) + 1));
+	sizes.spr = calloc(sizeof(void *), (sizes.len));
 	if (!sizes.spr)
 		return (0);
 	window(&sizes);
 	mapping(&sizes);
-	mlx_key_hook(sizes.wndw, move_it, &sizes);
+	mlx_hook(sizes.wndw, 2, 0, move_it, &sizes);
 	mlx_hook(sizes.wndw, 17, 0, close_it, &sizes);
 	mlx_loop(sizes.mlx_ptr);
 	return (0);

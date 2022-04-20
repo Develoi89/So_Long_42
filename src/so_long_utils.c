@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:45:10 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 17:04:06 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/20 16:11:14 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	remove_sprites(t_sizes *sizes)
 	int	i;
 
 	i = 0;
-	while (sizes->spr[i] != NULL)
+	while (sizes->spr[i])
 	{
 		mlx_destroy_image(sizes->mlx_ptr, sizes->spr[i]);
 		i++;

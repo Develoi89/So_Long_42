@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:09:09 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/19 19:05:23 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/20 16:58:41 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	*lets_swap(int x, int y, t_sizes *sizes)
 {
 	remove_sprites(sizes);
-	mlx_destroy_window(sizes->mlx_ptr, sizes->wndw);
+	mlx_clear_window(sizes->mlx_ptr, sizes->wndw);
 	sizes->map[sizes->hx + x][sizes->hy + y] = 'P';
 	sizes->map[sizes->hx][sizes->hy] = '0';
-	window(sizes);
+	sizes->spr = save_spr(sizes);
 	mapping(sizes);
 	return (0);
 }
@@ -30,14 +30,19 @@ void	found_the_hero(t_sizes *sizes)
 
 	x = 0;
 	y = 0;
-	while (sizes->map[x][y] != 'P' && sizes->map[x][y] != 0)
+	while (sizes->map[x] != 0)
 	{
 		y = 0;
-		while (sizes->map[x][y] != 'P' && sizes->map[x][y] != '\0')
+		while (sizes->map[x][y] != '\0')
+		{
+			if (sizes->map[x][y] == 'P')
+				break ;
 			y++;
+		}
+		if (sizes->map[x][y] == 'P')
+			break ;
 		x++;
 	}
-	// close_it();
 	sizes->hx = x;
 	sizes->hy = y;
 }
