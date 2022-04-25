@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/25 17:00:24 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 18:14:08 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ int	main(int argc, char **argv)
 {
 	t_sizes	sizes;
 
+	if (argc != 2 || ft_strrncmp(argv[1], ".ber", 4) != 0)
+	{
+		ft_printf("Error\nInvalid arguments");
+		exit(0);
+	}
 	sizes.moves = 0;
 	sizes.len = readlen(argv[1]) + 1;
 	if (argc != 2)
