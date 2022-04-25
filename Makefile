@@ -30,7 +30,6 @@ clean:
 fclean:		clean
 			${RM} ${NAME}
 			make fclean -C libft
-			make clean -C mlx
 			rm so_long
 
 re:			fclean all

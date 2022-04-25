@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/25 15:50:54 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:00:24 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	sizes.map = reading_map(argv[1]);
+	comprove_ber(&sizes);
+	rect_map(&sizes);
+	elements_in_map(&sizes);
 	sizes.spr = calloc(sizeof(void *), (sizes.len));
 	if (!sizes.spr)
 		return (0);
