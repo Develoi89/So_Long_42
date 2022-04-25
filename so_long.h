@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:16:15 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/20 16:27:12 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:50:59 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ typedef struct s_sizes
 	char	**map;
 	int		hx;
 	int		hy;
+	int		moves;
 	int		len;
+	int		coins;
 }	t_sizes;
 
 typedef struct s_index
@@ -55,5 +57,6 @@ void	remove_sprites(t_sizes *sizes);
 void	window(t_sizes *sizes);
 void	**save_spr(t_sizes *sizes);
 void	found_the_hero(t_sizes *sizes);
+int		count_coins(t_sizes *sizes);
 
 #endif

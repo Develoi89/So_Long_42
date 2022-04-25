@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:09:09 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/20 16:58:41 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:51:06 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,22 @@ void	*lets_swap(int x, int y, t_sizes *sizes)
 {
 	remove_sprites(sizes);
 	mlx_clear_window(sizes->mlx_ptr, sizes->wndw);
+	if (sizes->map[sizes->hx + x][sizes->hy + y] == 'C')
+		sizes->coins--;
+	if (sizes->map[sizes->hx + x][sizes->hy + y] == 'E'
+		&& sizes->coins == 0)
+		close_it();
+	if (sizes->map[sizes->hx + x][sizes->hy + y] == 'E'
+		&& sizes->coins > 0)
+	{
+		mapping(sizes);
+		return (0);
+	}
 	sizes->map[sizes->hx + x][sizes->hy + y] = 'P';
 	sizes->map[sizes->hx][sizes->hy] = '0';
 	sizes->spr = save_spr(sizes);
+	sizes->moves++;
+	printf("moves:%d\n", sizes->moves);
 	mapping(sizes);
 	return (0);
 }
@@ -65,11 +78,6 @@ int	lets_move(int keycap, t_sizes *sizes)
 	else
 		return (0);
 	return (0);
-
-	// left = 0, 123
-	// up = 13, 126
-	// right = 2, 124
-	// down = 1, 125
 }
 
 int	close_it(void)

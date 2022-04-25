@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:45:10 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/20 16:11:14 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:51:03 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,27 @@ void	remove_sprites(t_sizes *sizes)
 		mlx_destroy_image(sizes->mlx_ptr, sizes->spr[i]);
 		i++;
 	}
+}
+
+int	count_coins(t_sizes *sizes)
+{
+	unsigned int	x;
+	unsigned int	y;
+	unsigned int	r;
+
+	r = 0;
+	x = 0;
+	y = 0;
+	while (sizes->map[x] != 0)
+	{
+		y = 0;
+		while (sizes->map[x][y] != '\0')
+		{
+			if (sizes->map[x][y] == 'C')
+				r++;
+			y++;
+		}
+		x++;
+	}
+	return (r);
 }

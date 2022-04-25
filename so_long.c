@@ -6,7 +6,7 @@
 /*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:59:58 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/20 16:54:34 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:50:54 by ealonso-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	main(int argc, char **argv)
 {
 	t_sizes	sizes;
 
+	sizes.moves = 0;
 	sizes.len = readlen(argv[1]) + 1;
 	if (argc != 2)
 		return (0);
@@ -87,6 +88,7 @@ int	main(int argc, char **argv)
 		return (0);
 	window(&sizes);
 	mapping(&sizes);
+	sizes.coins = count_coins(&sizes);
 	mlx_hook(sizes.wndw, 2, 0, move_it, &sizes);
 	mlx_hook(sizes.wndw, 17, 0, close_it, &sizes);
 	mlx_loop(sizes.mlx_ptr);
