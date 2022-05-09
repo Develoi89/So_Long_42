@@ -11,6 +11,8 @@ NAME 	= so_long.a
 
 RM 		= rm -f
 
+HEADER	= so_long.h
+
 .c.o:	
 	make -C libft
 	make -C mlx
@@ -18,7 +20,7 @@ RM 		= rm -f
 
 all:		${NAME}
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} ${HEADER}
 			ar rc ${NAME} ${OBJS}
 			gcc ${CFLAGS} -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a mlx/libmlx.a ${NAME} -o so_long
 
