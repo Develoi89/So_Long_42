@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: develoi89 <develoi89@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:45:10 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/25 15:51:03 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/11/01 08:43:13 by develoi89        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	countst(char **res)
 {

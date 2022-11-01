@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ealonso- <ealonso-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: develoi89 <develoi89@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:09:09 by ealonso-          #+#    #+#             */
-/*   Updated: 2022/04/25 15:51:06 by ealonso-         ###   ########.fr       */
+/*   Updated: 2022/11/01 08:43:01 by develoi89        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	*lets_swap(int x, int y, t_sizes *sizes)
 {

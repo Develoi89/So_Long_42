@@ -1,17 +1,19 @@
+NAME 	= so_long.a
+
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = so_long.c \
+SRCS = 	src/so_long.c \
 		src/map.c \
 		src/so_long_utils.c \
 		src/events.c \
 
 OBJS 	= ${SRCS:.c=.o}
 
-NAME 	= so_long.a
+
 
 RM 		= rm -f
 
-HEADER	= so_long.h
+HEADER	= src/so_long.h
 
 .c.o:	
 	make -C libft
